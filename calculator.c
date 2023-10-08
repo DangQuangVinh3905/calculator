@@ -223,7 +223,9 @@ int main(){
         printf("Enter the calculation formula: ");
         char msg[200];
         fgets(msg, 200, stdin);
-        msg[strlen(msg)-1] = '\0';
+        msg[strcspn(msg, "\n")] = '\0';
+        //printf("size = %d, buffer = `%s`\n", strlen(msg), msg);
+        
 
         int size = strlen(msg)+1;
         sub(msg, size);
